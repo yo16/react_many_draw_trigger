@@ -19,7 +19,7 @@ export function App() {
             >－</button>
             <br /><br />
             <button
-                onClick={()=>{setClickedCount((c)=>c+1);console.clear();}}
+                onClick={()=>{setClickedCount((c)=>c+1);}}
                 style={{height:50, width:100}}
             >{(clickedCount%2===0)?"reset":"redraw!"}</button>
         </>
