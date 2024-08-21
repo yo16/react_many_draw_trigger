@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { MyChild, CHILD_WIDTH } from "./MyChild";
 
-const CHILD_MERGIN: number = 5;
+const CHILD_MARGIN: number = 5;
 const CHILD_START: {x: number, y: number} = {x: 20, y: 20};
 
 interface MyParentProps {
@@ -22,7 +22,7 @@ export function MyParent({
         setChildrenVals(
             new Array(childrenNumber).fill(0)
         );
-        setParentWidth(CHILD_MERGIN + childrenNumber*(CHILD_WIDTH+CHILD_MERGIN));
+        setParentWidth(CHILD_MARGIN + childrenNumber*(CHILD_WIDTH+CHILD_MARGIN));
         setParentHeight(0);
     }, [childrenNumber]);
 
@@ -73,7 +73,7 @@ export function MyParent({
                     x={CHILD_START.x}
                     y={CHILD_START.y}
                     width={parentWidth}
-                    height={parentHeight + CHILD_MERGIN*2}
+                    height={parentHeight + CHILD_MARGIN*2}
                     fill="#ccc"
                     stroke="#999"
                     strokeWidth="2"
@@ -86,9 +86,9 @@ export function MyParent({
                 {childrenVals.map((_, i)=>(
                     <g
                         transform={`translate(${
-                            CHILD_START.x + i*(CHILD_MERGIN+CHILD_WIDTH) + CHILD_MERGIN
+                            CHILD_START.x + i*(CHILD_MARGIN+CHILD_WIDTH) + CHILD_MARGIN
                         }, ${
-                            CHILD_START.y + CHILD_MERGIN
+                            CHILD_START.y + CHILD_MARGIN
                         })`}
                         key={`myChild_${i}`}
                     >
