@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MyParent } from "./components/MyParent"
+import { MyParentFix } from "./components/MyParentFix"
 
 export function App() {
     const [clickedCount, setClickedCount] = useState<number>(0);
@@ -7,15 +8,23 @@ export function App() {
 
     return (
         <>
-            <MyParent
+            <MyParentFix
+                key={`parent_${clickedCount}`}
                 childrenNumber={childrenNumber}
                 doRedraw={clickedCount%2===0}
             /><br />
             <button
-                onClick={()=>{setChildrenNumber((c)=>c+1);setClickedCount(0);}}
+                onClick={()=>{
+                    setChildrenNumber((c)=>c+1);
+                    //setClickedCount(0);
+                    setClickedCount((n)=>n+(n%2===0?2:1));  // 次の偶数
+                }}
             >＋</button>
             <button
-                onClick={()=>{setChildrenNumber((c)=>c-1);setClickedCount(0);}}
+                onClick={()=>{
+                    setChildrenNumber((c)=>c-1);
+                    setClickedCount((n)=>n+(n%2===0?2:1));  // 次の偶数
+                }}
             >－</button>
             <br /><br />
             <button
