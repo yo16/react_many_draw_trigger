@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MyParent } from "./components/MyParent"
 import { MyParentFix } from "./components/MyParentFix"
 
-export function App() {
+export function App1() {
     const [clickedCount, setClickedCount] = useState<number>(0);
     const [childrenNumber, setChildrenNumber] = useState<number>(30);
 
