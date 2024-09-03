@@ -17,13 +17,12 @@ export function CompRaw({ data, onChange }: CompRawProps){
     useEffect(()=>{
         onChange(currentHeight);
     }, [currentHeight])
-    
 
     return (
         <div
             style={{
                 height: currentHeight,
-                backgroundColor: "#f93",
+                backgroundColor: "#c63",
             }}
         >
             {data.str}, height:{currentHeight}

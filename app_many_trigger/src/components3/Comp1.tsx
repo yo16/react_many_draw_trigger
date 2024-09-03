@@ -1,17 +1,20 @@
 import { useState } from "react";
 
-import type { CompRawType } from "./CompRaw";
-import { CompRaw } from "./CompRaw";
+import type { Comp2Type } from "./Comp2";
+import { Comp2 } from "./Comp2";
 
+export type Comp1Type = {
+    Comp1: Comp2Type[];
+}
 
 const CHILD_GAP: number = 5;
 interface Comp1Props {
-    data: CompRawType[];
+    data: Comp1Type;
 }
 export function Comp1({ data }: Comp1Props){
     // 子要素たちの高さを記録
     const [rawHeights, setRawHeights] = useState<number[]>(
-        new Array(data.length).fill(0)
+        new Array(data.Comp1.length).fill(0)
     )
 
     // 子要素から、サイズが変わった通知のハンドル
@@ -51,10 +54,10 @@ export function Comp1({ data }: Comp1Props){
                     gap: CHILD_GAP,
                 }}
             >
-                {data.map((craw, i) => (
-                    <CompRaw
-                        key={`craw_${i}`}
-                        data={craw}
+                {data.Comp1.map((c_data, i) => (
+                    <Comp2
+                        key={`c2_${i}`}
+                        data={c_data}
                         onChange={(h)=>handleOnChange(h, i)}
                     />
                 ))}
