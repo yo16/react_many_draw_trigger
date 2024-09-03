@@ -48,7 +48,7 @@ Comp5.tsx:22 Warning: Maximum update depth exceeded. This can happen when a comp
     - 子たちの高さは、`state`
     - 自分の高さも、`state`
     - 自分の高さは、JSXで利用する
-    - Rawから呼び出されるhandleでは、子たちの高さを変える
+    - 子から呼び出されるhandleでは、子たちの高さを変える
     - **子たちの高さ**を見る`useEffect`で、
         - 自分の高さを変え
             - `setState`
@@ -57,4 +57,4 @@ Comp5.tsx:22 Warning: Maximum update depth exceeded. This can happen when a comp
 
 # App4
 - App2をベースに改造
-
+- ５階層でもできた
