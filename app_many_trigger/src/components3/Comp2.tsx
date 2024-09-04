@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import type { CompRawType } from "./CompRaw"
 import { CompRaw } from "./CompRaw";
@@ -14,7 +14,7 @@ interface Comp2Props {
 }
 export function Comp2({ data, onChange }: Comp2Props) {
     //const [ curHeight2, setCurHeight2 ] = useState<number>(0);
-    const [ curHeight, setCurHeight ] = useState<number>(0);
+    //const [ curHeight, setCurHeight ] = useState<number>(0);
     const [ childHeights, setChildHeights ] = useState<number[]>(
         new Array(data.Comp2.length).fill(0)
     );
@@ -38,14 +38,20 @@ export function Comp2({ data, onChange }: Comp2Props) {
     //    [curHeight2]
     //);
 
+    const curHeight = useMemo(
+        ()=>calcCurHeight(),
+        [childHeights]
+    );
+
     useEffect(
         ()=>{
             // 自分の新しい高さ
-            const newCurHeight = calcCurHeight();
+            //const newCurHeight = calcCurHeight();
+            const newCurHeight = curHeight;
 
             // stateを更新
             //setCurHeight(()=>calcCurHeight());
-            setCurHeight(newCurHeight);
+            //setCurHeight(newCurHeight);
 
             // 親を呼び出す
             onChange(newCurHeight);
